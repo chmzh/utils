@@ -9,27 +9,57 @@ import java.util.concurrent.LinkedBlockingQueue;
 public class Test {
 	//-Xms:1024k -Xmx1024k
 	public static void main(String[] args) {
-		ReferenceQueue<String> q = new ReferenceQueue<>();
-		BlockingQueue<WeakReference<String>> queue = new LinkedBlockingQueue<>();
-		
-		WeakReference<String>  msg = new WeakReference<>(new String("abc"), q);
-		
-		
-		queue.add(msg);
-		
-		System.gc();
-		try {
-			Thread.sleep(5000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-		for (Reference<? extends String> x; (x = q.poll()) != null; ){
-			System.out.println(queue.size());
-			queue.remove(x);
-			System.out.println(x);
-			System.out.println(queue.size());
-		}
+    	ReferenceQueue<byte[]> queue = new ReferenceQueue<byte[]>();
+        BlockingQueue<WeakReference<byte[]>> queue2 = new LinkedBlockingQueue<>();
+//        Map<Reference<byte[]>, String> map = new HashMap<Reference<byte[]>, String>();
+//        map.put(new WeakReference<>(new byte[1024*500],queue), "abc");
+//        map.put(new WeakReference<>(new byte[1024*500],queue), "abc");
+//        map.put(new WeakReference<>(new byte[1024*500],queue), "abc");
+        
+//        for(int i=0;i<10;i++){
+//        	Thread thread = new Thread(new Runnable() {
+//				
+//				@Override
+//				public void run() {
+//					while(true){
+//						queue2.add(new WeakReference<>(new byte[1],queue));
+//					}
+//					
+//				}
+//			});
+//        }
+        
+        ReentrantLock lock = new ReentrantLock();
+        lock.lock();
+        lock.unlock();
+        
+        //map.put(new WeakReference<>(new byte[1024*500],queue), "abc");
+    	
+        
+
+//        queue2.add(new WeakReference(new byte[1024*500],queue));
+//        queue2.add(new WeakReference(new byte[1024*500],queue));
+//        queue2.add(new WeakReference(new byte[1024*500],queue));
+//        queue2.add(new WeakReference(new byte[1024*500],queue));
+        //byte[] bytes = new byte[1024*500];
+//        System.gc();
+//        try {
+//			Thread.sleep(6000);
+//		} catch (InterruptedException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+//        System.gc();
+        for (Object x; (x = queue.poll()) != null; ){
+        	System.out.println(x);
+        }
+        System.out.println("============================");
+        for(Reference<byte[]> entry:queue2){
+        	System.out.println(entry.get());
+        }
+        
+//        for(Map.Entry<Reference<byte[]>, String> entry:map.entrySet()){
+//        	System.out.println(entry.getKey());
+//        }
 	}
 }
