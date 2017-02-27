@@ -7,6 +7,7 @@ import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
 
 public class Test {
+	//-Xms:1024k -Xmx1024k
 	public static void main(String[] args) {
 		ReferenceQueue<String> q = new ReferenceQueue<>();
 		BlockingQueue<WeakReference<String>> queue = new LinkedBlockingQueue<>();
