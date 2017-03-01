@@ -8,6 +8,7 @@ public class Main{
 		new HeaderBuilder(sendPacker).fork();
 		new BodyBuilder(sendPacker).fork();
 		sendPacker.invoke();
+		
 	}
 }
 
@@ -25,13 +26,9 @@ class HeaderBuilder extends CountedCompleter<String> {
 	
 	@Override
 	public void compute() {
-		try {
-			Thread.sleep(2000);
+
 			System.out.println("HeaderBuilder Completer!");
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		
 	}
 
 }
@@ -49,13 +46,9 @@ class BodyBuilder extends CountedCompleter<String>{
 	
 	@Override
 	public void compute() {
-		try {
-			Thread.sleep(2000);
+
 			System.out.println("BodyBuilder Completer!");
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		
 	}
 	
 }
@@ -68,13 +61,9 @@ class SendPacker extends CountedCompleter<String>{
 
 	@Override
 	public void compute() {
-//		try {
-//			Thread.sleep(2000);
-//			System.out.println("SendPacker Completer!");
-//		} catch (InterruptedException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
+
+			System.out.println("SendPacker Completer!");
+			propagateCompletion();
 	}
 	
 	public SendPacker() {
