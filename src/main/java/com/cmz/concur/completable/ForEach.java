@@ -39,7 +39,7 @@ public class ForEach<E> extends CountedCompleter<Void> {
 	public static void main(String[] args) {
 		Integer[] array = {1,2,3,4,5};
 		ForEach<Integer> forEach = new ForEach<Integer>(null, array, new MyOperation<Integer>(), 0, 5);
-		forEach.compute();
+		forEach.invoke();
 	}
 }
 
