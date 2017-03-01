@@ -61,8 +61,8 @@ public class MyArraySpliterator implements Spliterator<Long> {
 
 	private static long sumValues(Stream<Long> stream) {
 		Optional<Long> optional = stream.reduce((t, u) -> t + u);
-
-		return optional.get() != null ? optional.get() : Long.valueOf(0);
+		//return optional.get() != null ? optional.get() : Long.valueOf(0);  //这样调用会引起异常
+		return optional.orElse(0L);
 	}
 
 	public static void main(String[] args) {
