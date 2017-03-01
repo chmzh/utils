@@ -70,7 +70,7 @@ public class MyArraySpliterator implements Spliterator<Long> {
 		long[] twoThousandNumbers = LongStream.rangeClosed(1, 10_000_000).toArray();
 
 		Spliterator<Long> spliterator = new MyArraySpliterator(twoThousandNumbers);
-		Stream<Long> stream = StreamSupport.stream(spliterator, false);
+		Stream<Long> stream = StreamSupport.stream(spliterator, true);
 
 		System.out.println(sumValues(stream));
 	}
