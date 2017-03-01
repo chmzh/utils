@@ -32,6 +32,7 @@ public class ForEach<E> extends CountedCompleter<Void> {
 			new ForEach<E>(this, array, op, mid, hi).fork(); // right child
 			new ForEach<E>(this, array, op, lo, mid).fork(); // left child
 		} else if (hi > lo)
+			//System.out.println(this);
 			op.apply(array[lo]);
 		tryComplete();
 	}
