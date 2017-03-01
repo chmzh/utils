@@ -12,10 +12,10 @@ public class Test {
 		ReferenceQueue<String> q = new ReferenceQueue<>();
 		BlockingQueue<WeakReference<String>> queue = new LinkedBlockingQueue<>();
 		
-		WeakReference<String>  msg = new WeakReference<>(new String("abc"), q);
+		//WeakReference<String>  msg = new WeakReference<>(new String("abc"), q);
 		
 		
-		queue.add(msg);
+		queue.add(new WeakReference<>(new String("abc"), q));
 		
 		System.gc();
 		try {
