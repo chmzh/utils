@@ -7,6 +7,7 @@ public class Main{
 		SendPacker sendPacker = new SendPacker();
 		new HeaderBuilder(sendPacker).fork();
 		new BodyBuilder(sendPacker).fork();
+		sendPacker.invoke();
 	}
 }
 
@@ -19,7 +20,7 @@ class HeaderBuilder extends CountedCompleter<String> {
 	private static final long serialVersionUID = 2552453106104631161L;
 
 	public HeaderBuilder(CountedCompleter<String> caller) {
-		super(caller,1);
+		super(caller);
 	}
 	
 	@Override
@@ -43,7 +44,7 @@ class BodyBuilder extends CountedCompleter<String>{
 	private static final long serialVersionUID = -1058510991086464956L;
 
 	public BodyBuilder(CountedCompleter<String> caller) {
-		super(caller,1);
+		super(caller);
 	}
 	
 	@Override
@@ -67,13 +68,13 @@ class SendPacker extends CountedCompleter<String>{
 
 	@Override
 	public void compute() {
-		try {
-			Thread.sleep(2000);
-			System.out.println("SendPacker Completer!");
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+//		try {
+//			Thread.sleep(2000);
+//			System.out.println("SendPacker Completer!");
+//		} catch (InterruptedException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
 	}
 	
 	public SendPacker() {
