@@ -9,7 +9,7 @@ public class ArraysTest {
 	public static void main(String[] args) {
 		double[] array = {1,2,3,4,5};
 		DoubleStream stream = StreamSupport.doubleStream(Arrays.spliterator(array), false);
-		stream.map((d)->{return d*d;}).forEach((d)->System.out.println(d));
+		stream.map((d)->d).forEach((d)->System.out.println(d));
 		
 	}
 }
