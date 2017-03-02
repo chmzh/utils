@@ -131,7 +131,12 @@
                             <mainClass>com.cmz.serviceloader.Test</mainClass>  
                         </manifest>  
                         <manifestEntries>    
-                           <Class-Path>.</Class-Path>    
+                           <Class-Path>.</Class-Path>  
+                           <!-- 在mainfest中 本地jar路径 添加classpath缺少的内容--> 
+ 					    <manifestEntries>
+					      <Class-Path>lib/ant-contrib-0.6.jar</Class-Path>
+					      <Class-Path>lib/jsch-0.1.48.jar</Class-Path>
+					    </manifestEntries>   
                           </manifestEntries>    
                     </archive>  
                 </configuration>  
