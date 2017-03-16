@@ -54,23 +54,25 @@ public class SearchFile implements FileVisitor {
 		// report an error if necessary
 		return FileVisitResult.CONTINUE;
 	}
-	
+
 	public static void main(String[] args) {
 		Path searchFile = Paths.get("story.txt");
-        SearchFile walk = new SearchFile(searchFile);
-        EnumSet opts = EnumSet.of(FileVisitOption.FOLLOW_LINKS);
-        Iterable<Path> dirs = FileSystems.getDefault().getRootDirectories();
-        for (Path root : dirs) {
-            if (!walk.found) {
-                try {
-					Files.walkFileTree(root, opts, Integer.MAX_VALUE, walk);
+		SearchFile walk = new SearchFile(searchFile);
+		EnumSet opts = EnumSet.of(FileVisitOption.FOLLOW_LINKS);
+		Iterable<Path> dirs = FileSystems.getDefault().getRootDirectories();
+		Path path = FileSystems.getDefault().getPath("");
+		//for (Path root : dirs) {
+			if (!walk.found) {
+				try {
+					Files.walkFileTree(path, opts, Integer.MAX_VALUE, walk);
 				} catch (IOException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
-} }
-        if (!walk.found) {
-            System.out.println("The file " + searchFile + " was not found!");
-}
+			}
+		//}
+		if (!walk.found) {
+			System.out.println("The file " + searchFile + " was not found!");
+		}
 	}
 }
