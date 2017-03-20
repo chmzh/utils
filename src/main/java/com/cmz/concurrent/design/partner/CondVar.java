@@ -7,7 +7,7 @@ public class CondVar {
 		 
 	 }
 	 public boolean timedwait(long ms) throws InterruptedException{
-		 
+		 return true;
 	 }
 	 public void signal(){
 		 // analog of notify

@@ -7,8 +7,8 @@ public class Mutex implements Sync {
 	 public void release(){
 		 
 	 }
-	 public boolean attempt(long msec) throws
-	InterruptedException{
-		 
+	 
+	 public boolean attempt(long msec) throws InterruptedException{
+		 return true;
 	 }
 	}

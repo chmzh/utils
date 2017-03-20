@@ -65,7 +65,7 @@ public class MediatorClient {
         ConcreteMediator mediator = new ConcreteMediator();
         mediator.createConcreteMediator();
         Colleague1 col1 = new Colleague1(mediator);
-//        Colleague2 col2 = new Colleague2(mediator);
-        mediator.colleagueChanged(col1);
+        Colleague2 col2 = new Colleague2(mediator);
+        mediator.colleagueChanged(col2);
     }
 }
