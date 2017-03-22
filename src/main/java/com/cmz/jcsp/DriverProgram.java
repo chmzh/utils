@@ -9,18 +9,13 @@ import org.jcsp.lang.One2OneChannel;
 import org.jcsp.lang.One2OneChannelInt;
 import org.jcsp.lang.Parallel;
 
-public class DriverProgram
-{
-    public static void main(String[] args)
-    {
-      One2OneChannelInt chan = Channel.one2oneInt();
-      new Parallel
-      (
-        new CSProcess[]
-	    {
-	      new SendEvenIntsProcess(chan.out()),
-	      new ReadEvenIntsProcess(chan.in())
-	    }
-      ).run ();
-    }
+public class DriverProgram {
+	public static void main(String[] args) {
+		One2OneChannelInt chan = Channel.one2oneInt();
+		new Parallel(new CSProcess[] { 
+				new ReadEvenIntsProcess(chan.in()), 
+				new SendEvenIntsProcess(chan.out()),
+
+		}).run();
+	}
 }
