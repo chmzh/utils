@@ -2,11 +2,15 @@ package com.cmz.jcsp;
 
 import org.jcsp.lang.CSProcess;
 import org.jcsp.lang.ChannelInput;
+import org.jcsp.lang.ChannelInputInt;
 
 public class ReadEvenIntsProcess implements CSProcess
 {
-    private ChannelInput in;
-    public ReadEvenIntsProcess(ChannelInput in)
+    private ChannelInputInt in;
+    public ChannelInputInt getIn() {
+		return in;
+	}
+    public ReadEvenIntsProcess(ChannelInputInt in)
     {
       this.in = in;
     }
@@ -14,7 +18,7 @@ public class ReadEvenIntsProcess implements CSProcess
     {
       while (true)
       {
-        Integer d = (Integer)in.read();
+        Integer d = in.read();
         System.out.println("Read: " + d.intValue());
       }
     }

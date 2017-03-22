@@ -2,11 +2,15 @@ package com.cmz.jcsp;
 
 import org.jcsp.lang.CSProcess;
 import org.jcsp.lang.ChannelOutput;
+import org.jcsp.lang.ChannelOutputInt;
 
 public class SendEvenIntsProcess implements CSProcess 
 {
-    private ChannelOutput out;
-    public SendEvenIntsProcess(ChannelOutput out)
+    private ChannelOutputInt out;
+    public ChannelOutputInt getOut() {
+		return out;
+	}
+    public SendEvenIntsProcess(ChannelOutputInt out)
     {
       this.out = out;
     }
