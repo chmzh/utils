@@ -1,4 +1,4 @@
-package com.cndw.ssm.util;
+package com.lambda;
 
 import java.util.ArrayList;
 import java.util.List;
