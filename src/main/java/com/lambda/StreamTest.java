@@ -23,10 +23,11 @@ public class StreamTest {
         //Map<String,Long> map = list.stream().collect(Collectors.groupingBy(TestEntry::getOne,Collectors.counting()));
         Map<String,Map<String,List<TestEntry>>> map = list.stream().collect(Collectors.groupingBy(TestEntry::getOne,Collectors.groupingBy(TestEntry::getThree)));
         map.forEach((key,value)->{
-
             value.forEach((key2,value2)->{
+                if(value2.size()>1){
+                    System.out.println(key2+"=>"+value2);
+                }
 
-                System.out.println(key2+"=>"+value2);
 
             });
 
